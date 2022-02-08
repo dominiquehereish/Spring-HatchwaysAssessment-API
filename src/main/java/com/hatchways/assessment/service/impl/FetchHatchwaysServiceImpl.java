@@ -63,7 +63,7 @@ public class FetchHatchwaysServiceImpl implements FetchHatchwaysService {
 
         return postsResponse.getPosts();
     }
-    }
+
 
     private CloseableHttpResponse performGetRequest(String params) {
         try {
