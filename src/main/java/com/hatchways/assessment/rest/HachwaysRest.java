@@ -28,10 +28,15 @@ public class HachwaysRest {
     }
 
     @GetMapping("/posts")
-    public ResponseEntity<Response> getPosts(@RequestParam(required = true) String tags,
+    public ResponseEntity<Response> getPosts(@RequestParam(required = false) String tags,
                                             @RequestParam(defaultValue = "id") String sortBy,
                                             @RequestParam(defaultValue = "asc") String direction){
 
+        if(null == tags || tags.isBlank()){
+            ErrorResponse errorResponse = new ErrorResponse();
+            errorResponse.setError("tags parameter is required");
+            return ResponseEntity.badRequest().body(errorResponse);
+        }
         if(SortByValues.fromString(sortBy.toUpperCase()) == null)
         {
             ErrorResponse errorResponse = new ErrorResponse();
