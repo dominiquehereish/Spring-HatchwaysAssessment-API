@@ -15,6 +15,8 @@ repositories {
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+    compileOnly 'org.apache.httpcomponents:httpclient:4.5.13'
 }
 
 tasks.named('test') {
