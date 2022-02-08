@@ -1,6 +1,6 @@
 # Spring-HatchwaysTest-API
 Spring back-end assessment - Blog Posts</br>
-A simple backend JSON API
+  A simple backend JSON API
 
 ## Usage
 Import and build with graddle.
@@ -13,6 +13,7 @@ Import and build with graddle.
 	<li>Spring</li>
 	<li>Graddle</li>
 </ul>
+
 
 ## TODO
 
