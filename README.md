@@ -16,9 +16,9 @@ Import and build with graddle.
 
 ## TODO
 
-- [ ]
+- [ ] 
 
-<p>The full assessement can be found [Here](/documents)</p>
+The full assessement can be found [here](/documents/assessment.pdf).
 
 ## License
 Dominique Hereish &copy; 2022
