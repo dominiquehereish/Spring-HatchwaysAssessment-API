@@ -5,6 +5,7 @@ import com.hatchways.assessment.model.Post;
 import com.hatchways.assessment.rest.response.PingResponse;
 import com.hatchways.assessment.rest.response.PostsResponse;
 import com.hatchways.assessment.service.FetchHatchwaysService;
+import com.hatchways.assessment.service.SortingUtility;
 import org.apache.http.HttpEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
@@ -36,6 +37,9 @@ public class FetchHatchwaysServiceImpl implements FetchHatchwaysService {
                 postsList.add(post);
             }
         }
+
+        SortingUtility.sortListBy(postsList, sortBy);
+        SortingUtility.setListDirection(postsList, direction);
 
         PostsResponse responsePosts = new PostsResponse();
         responsePosts.setPosts(postsList);
