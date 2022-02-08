@@ -26,7 +26,10 @@ public class FetchHatchwaysServiceImpl implements FetchHatchwaysService {
 
     @Override
     public PingResponse getPing() {
-        return null;
+        PingResponse pingResponse = new PingResponse();
+        CloseableHttpResponse response = performGetRequest("\"\"");
+        pingResponse.setSuccess(response.getStatusLine().getStatusCode());
+        return pingResponse;
     }
 
     private CloseableHttpResponse performGetRequest(String params) {
