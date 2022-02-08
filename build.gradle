@@ -14,6 +14,8 @@ repositories {
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'com.google.code.gson:gson:2.8.9'
+    implementation group: 'org.apache.commons', name: 'commons-lang3', version: '3.0'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
     compileOnly 'org.apache.httpcomponents:httpclient:4.5.13'
