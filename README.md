@@ -16,8 +16,6 @@ Import and build with graddle.
 
 ## TODO
 
-- [ ] 
-
 The full assessement can be found [here](/documents/assessment.pdf).
 
 ## License
