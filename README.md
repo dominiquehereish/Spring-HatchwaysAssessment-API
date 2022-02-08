@@ -1,4 +1,4 @@
-# Spring-HatchwaysTest-API
+# Spring-HatchwaysAssessment-API
 Spring back-end assessment - Blog Posts</br>
   A simple backend JSON API
 
