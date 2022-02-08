@@ -18,7 +18,7 @@ Import and build with graddle.
 
 - [ ]
 
-<p>The full assessement can be found [here](/documents/assessment.pdf)</p>
+<p>The full assessement can be found [here](/documents)</p>
 
 ## License
 Dominique Hereish &copy; 2022
