@@ -38,7 +38,7 @@ public class FetchHatchwaysServiceImpl implements FetchHatchwaysService {
             }
         }
 
-        SortingUtility.removeDups(postsList);
+        postsList = SortingUtility.removeDups(postsList);
         SortingUtility.sortListBy(postsList, sortBy);
         SortingUtility.setListDirection(postsList, direction);
 
