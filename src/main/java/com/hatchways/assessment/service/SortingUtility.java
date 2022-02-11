@@ -2,6 +2,7 @@ package com.hatchways.assessment.service;
 
 import com.hatchways.assessment.model.Post;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -31,5 +32,18 @@ public class SortingUtility {
         if(direction.equals("desc")) {
             Collections.reverse(list);
         }
+    }
+
+    public static List<Post> removeDups(List<Post> list){
+        sortListBy(list, "id");
+        long previousId = 0;
+        List<Post> listWithoutDups = new ArrayList<>();
+        for (Post post : list){
+            long id = post.getId();
+            if (id != previousId)
+                listWithoutDups.add(post);
+            previousId = id;
+        }
+        return listWithoutDups;
     }
 }
