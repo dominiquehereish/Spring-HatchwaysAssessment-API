@@ -33,7 +33,10 @@ class HatchwaysRestTest {
         this.mockMvc.perform(get("/api/ping")).andDo(print()).andExpect(status().isOk())
                 .andExpect(content().string(containsString("true")));
     }
-//    @Test
-//    public void getPosts() {
-//    }
+
+    @Test
+    public void getPostsNoTags() throws Exception{
+        this.mockMvc.perform(get("/api/posts")).andDo(print()).andExpect(status().isBadRequest())
+                .andExpect(content().string(containsString("tags parameter is required")));
+    }
 }
