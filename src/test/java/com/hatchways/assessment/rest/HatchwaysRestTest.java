@@ -39,4 +39,39 @@ class HatchwaysRestTest {
         this.mockMvc.perform(get("/api/posts")).andDo(print()).andExpect(status().isBadRequest())
                 .andExpect(content().string(containsString("tags parameter is required")));
     }
+
+    @Test
+    public void getPostsWithTags() throws Exception{
+        this.mockMvc.perform(get("/api/posts?tags=tech")).andDo(print()).andExpect(status().isOk());
+    }
+
+    @Test
+    public void getPostsWithBadSort() throws Exception{
+        this.mockMvc.perform(get("/api/posts?tags=tech&sortBy=any")).andDo(print())
+                .andExpect(status().isBadRequest())
+                .andExpect(content().string(containsString("sortBy parameter is invalid")));
+    }
+
+    @Test
+    public void getPostsWithGoodSort() throws Exception{
+        this.mockMvc.perform(get("/api/posts?tags=tech&sortBy=id")).andDo(print()).andExpect(status().isOk());
+        this.mockMvc.perform(get("/api/posts?tags=tech&sortBy=reads")).andDo(print()).andExpect(status().isOk());
+        this.mockMvc.perform(get("/api/posts?tags=tech&sortBy=likes")).andDo(print()).andExpect(status().isOk());
+        this.mockMvc.perform(get("/api/posts?tags=tech&sortBy=popularity")).andDo(print()).andExpect(status().isOk());
+    }
+
+    @Test
+    public void getPostsWithBadDir() throws Exception{
+        this.mockMvc.perform(get("/api/posts?tags=tech&sortBy=likes&direction=any")).andDo(print())
+                .andExpect(status().isBadRequest())
+                .andExpect(content().string(containsString("direction parameter is invalid")));
+    }
+
+    @Test
+    public void getPostsWithGoodDir() throws Exception{
+        this.mockMvc.perform(get("/api/posts?tags=tech&sortBy=likes&direction=asc"))
+                .andDo(print()).andExpect(status().isOk());
+        this.mockMvc.perform(get("/api/posts?tags=tech&sortBy=likes&direction=desc"))
+                .andDo(print()).andExpect(status().isOk());
+    }
 }
