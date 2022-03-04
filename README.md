@@ -12,6 +12,7 @@ Import and build with graddle.
 	<li>Java</li>
 	<li>Spring</li>
 	<li>Graddle</li>
+	<li>Junit</li>
 </ul>
 
 
