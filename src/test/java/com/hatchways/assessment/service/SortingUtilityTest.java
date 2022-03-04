@@ -11,7 +11,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 @SpringBootTest
 class SortingUtilityTest {
 
-
     private Post post1 = new PostBuilder().generate();
     private Post post2 = new PostBuilder().generate();
     private Post post3 = new PostBuilder().generate();
