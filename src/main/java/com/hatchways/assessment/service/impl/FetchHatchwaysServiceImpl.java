@@ -13,6 +13,7 @@ import org.apache.http.client.utils.URIBuilder;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
@@ -37,7 +38,6 @@ public class FetchHatchwaysServiceImpl implements FetchHatchwaysService {
                 postsList.add(post);
             }
         }
-
         postsList = SortingUtility.removeDups(postsList);
         SortingUtility.sortListBy(postsList, sortBy);
         SortingUtility.setListDirection(postsList, direction);
@@ -55,7 +55,7 @@ public class FetchHatchwaysServiceImpl implements FetchHatchwaysService {
         return pingResponse;
     }
 
-    private List<Post> getPosts(String tag) {
+    public List<Post> getPosts(String tag) {
         CloseableHttpResponse response = performGetRequest(tag);
         HttpEntity entity = response.getEntity();
         String result = null;
@@ -63,12 +63,9 @@ public class FetchHatchwaysServiceImpl implements FetchHatchwaysService {
             result = EntityUtils.toString(entity);
         } catch (IOException e) {
         }
-
         PostsResponse postsResponse = new Gson().fromJson(result, PostsResponse.class);
-
         return postsResponse.getPosts();
     }
-
 
     private CloseableHttpResponse performGetRequest(String params) {
         try {
